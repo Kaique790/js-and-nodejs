@@ -156,4 +156,8 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
     a {
         font-size: 0.8rem;
     }
+
+    .resultado-message {
+        font-size: 0.9rem;
+    }
 }

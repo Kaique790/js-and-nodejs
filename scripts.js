@@ -50,7 +50,7 @@ function checkPeso() {
 
 function calcularIMC() {
     const valorNome = nome.value;
-    const valorAltura = altura.value.replace(',', '.');
+    const valorAltura = altura.value.replace('.', '');
     const valorPeso = peso.value.replace(',', '.');
     const calculo = (valorPeso / (valorAltura / 100) ** 2).toFixed(2);
 
