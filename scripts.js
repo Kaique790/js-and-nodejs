@@ -60,9 +60,6 @@ function calcularIMC() {
         mensagem = 'Preencha todos os campos corretamente'
     }
 
-    else if (valorNome === "Lúcia" || valorNome === "Lúcia "){
-        mensagem = 'Você tá um chuchu'
-    }
     else if (calculo <= 18.5) {
         mensagem = `Olá, ${valorNome}! Seu IMC é <strong>${calculo}</strong> (Abaixo do peso).`;
     }
