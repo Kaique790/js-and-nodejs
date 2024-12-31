@@ -147,9 +147,6 @@ input[type=number]::-webkit-outer-spin-button {
 
     body {
         background: url('assets/fundo-max600px.jpg');
-        background-size: cover;
-        background-position: center center;
-        background-repeat: no-repeat;
     }
 
     .form {
