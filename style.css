@@ -37,7 +37,7 @@ form {
     width: 25rem;
 }
 
-h1{
+h1 {
     font-size: 2.2rem;
     border-bottom: 3px solid;
     border-image-slice: 1;
@@ -51,19 +51,21 @@ label {
     margin-left: 3px;
 }
 
-a{
+a {
     visibility: hidden;
     color: rgb(200, 11, 11);
     margin-left: 3px;
 }
 
-.email-container, .height-container, .weight-container {
+.email-container,
+.height-container,
+.weight-container {
     display: flex;
     flex-direction: column;
     margin-bottom: 16px;
 }
 
-.erro a{
+.erro a {
     visibility: visible;
 }
 
@@ -78,6 +80,7 @@ input {
 .erro input {
     border: 2px solid rgb(200, 11, 11);
 }
+
 .button {
     text-align: center;
     min-width: 100%;
@@ -99,7 +102,7 @@ button {
     color: #fff;
 }
 
-.submit:active{
+.submit:active {
     transform: scale(90%);
 }
 
@@ -125,26 +128,42 @@ button:hover {
     overflow-y: scroll;
 }
 
-.resultado p::-webkit-scrollbar { display: none;
+.resultado p::-webkit-scrollbar {
+    display: none;
 }
 
-.true p{
+.true p {
     visibility: visible;
 }
 
-input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
 
 
-@media(max-width: 728px){
+@media(max-width: 600px) {
+
+    body {
+        background: url('assets/fundo-max600px.jpg');
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+    }
+
     .form {
         max-width: 12rem;
     }
+
     input {
         width: 150%;
     }
+
     label {
         font-size: 0.9rem;
     }
+
     .button {
         width: 150%;
     }
