@@ -1,9 +1,8 @@
 {
-  "name": "funcionarios",
+  "name": "projeto",
   "version": "1.0.0",
-  "main": "funcionarios.js",
+  "main": "index.js",
   "scripts": {
-    "start": "nodemon",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -11,6 +10,6 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "axios": "^1.7.9"
+    "express": "4.16.2"
   }
 }
