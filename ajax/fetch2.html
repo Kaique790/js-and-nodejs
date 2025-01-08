@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="pt-br">
 <head>
     <meta charset='UTF-8'>
     <title>Fetch API #02</title>
@@ -19,45 +18,40 @@
         }
     </style>
 </head>
-
 <body class="conteudo exercicio">
     <h1>Formulário Via Fetch</h1>
-    <form name="usuarioForm" action="formulario" method="post">
+    <form name="usuarioForm" action="/formulario" method="POST">
         <input type="text" name="nome" placeholder="Nome..." />
         <input type="text" name="sobrenome" placeholder="Sobrenome..." />
-        <button>Salvar</button>
+        <button type="submit">Salvar</button>
     </form>
     <div id="resultado"></div>
     <script>
-        const resultado = document.getElementById('resultado')
         document.usuarioForm.onsubmit = async e => {
-        e.preventDefault()
-        const options = {
-        method: form.method,
-        body: new URLSearchParams(data)
-        }
-        try {
-            const resp = await fetch(form.action, options)
-            const json = await resp.json()
-            resultado.innerHTML = JSON.stringify(json)
-        } catch(e) {
-            resultado.innerHTML = e
-        }
-        }
-        //     const form = e.target
-        //     const data = new FormData(form)
-        //     data.append('ajax', true)
+            e.preventDefault();
 
-        //     
-        //     }
+            const form = e.target;
+            const data = new FormData(form);
+            data.append('ajax', true);
 
-        //     fetch(form.action, options)
-        //         .then(resp => resp.json())
-        //         .then(json => {
-        //             const resultado = document.getElementById('resultado')
-        //             resultado.innerHTML = JSON.stringify(json)
-        //         })
-        // }
-        
+            const options = {
+                method: form.method,
+                body: new URLSearchParams(data)
+            };
+
+            try {
+                const response = await fetch(form.action, options);
+                if (response.ok) {
+                    const json = await response.json();
+                    const resultado = document.getElementById('resultado');
+                    resultado.innerHTML = JSON.stringify(json, null, 2); // Formata JSON para melhor leitura
+                } else {
+                    console.error('Erro ao enviar os dados:', response.statusText);
+                }
+            } catch (error) {
+                console.error('Erro ao enviar os dados:', error);
+            }
+        };
     </script>
 </body>
+</html>
