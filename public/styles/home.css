@@ -27,18 +27,28 @@ form {
 
 form h2 {
     text-align: center;
-    background: linear-gradient(to right, rgb(207, 179, 21), rgb(247, 204, 64), rgb(207, 179, 21));
+    background: rgb(255, 205, 67);
     width: 100%;
     padding: 8px 0px;
     color: rgb(78, 78, 78);
 }
 
 .input-container {
-    padding: 12px 15px 20px 20px;
+    padding: 12px 20px 20px 20px;
     display: grid;
 }
+
 .input-container label{
+    position: relative;
     font-weight: 700;
+}
+
+.input-container label span{
+    position: absolute;
+    right: 50px;
+    top: 32px;
+    font-weight: 400;
+    color: rgba(78, 78, 78, 0.628);
 }
 
 .icon-user {
@@ -69,6 +79,7 @@ form h2 {
 
 .user-container input, 
 .subject-container input{
+    margin-left: 10px;
     width: 10rem;
     background-color: rgba(0, 0, 0, 0.089);
     border: none;
