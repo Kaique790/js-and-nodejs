@@ -12,9 +12,11 @@ app.use(bodyParser.json())
 app.engine('handlebars', exphbs.engine({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
 
-//servir arquivos estáticos
+// servir arquivos estáticos
 app.use(express.static(path.join(__dirname, 'public')));
 
+
+// routes
 app.get('/', (req, res) => {
     res.render('home')
 })

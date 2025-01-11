@@ -2,35 +2,63 @@ main {
     width: 100%;
     display: flex;
     flex-direction: column;
-    margin-top: 20px;
+    margin-top: 23px;
     align-items: center;
 }
 
 main h1 {
     letter-spacing: 1.5px;
+    margin-bottom: 12px;
 }
 
+/* Form */
 form {
     border: 1px solid rgba(0, 0, 0, 0.158);
+    min-height: 23rem;
     border-radius: 10px;
     width: 18rem;
     overflow: hidden;
     box-shadow: 3px 3px 10px 2px rgba(0, 0, 0, 0.137);
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
 }
 
 form h2 {
     text-align: center;
-    background: linear-gradient(to right, rgb(39, 219, 174), rgb(69, 238, 196), rgb(39, 219, 174));
+    background: linear-gradient(to right, rgb(207, 179, 21), rgb(247, 204, 64), rgb(207, 179, 21));
     width: 100%;
-    padding-block: 3px;
-    color: rgba(71, 61, 139, 0.664);
+    padding: 8px 0px;
+    color: rgb(78, 78, 78);
 }
 
 .input-container {
     padding: 12px 15px 20px 20px;
+    display: grid;
 }
 .input-container label{
     font-weight: 700;
+}
+
+.icon-user {
+    margin-left: 110px;
+    transform: translateY(32px);
+    height: 25px;
+    width: 25px;
+    padding: 5px;
+    border-radius: 100%;
+    background-color: rgba(0, 0, 0, 0.158);
+}
+
+.icon-book {
+    height: 25px;
+    width: 25px;
+    margin-left: 123px;
+    transform: translateY(32px);
+    padding: 5px;
+    border-radius: 100%;
+    background-color: rgba(0, 0, 0, 0.158);
 }
 
 .user-container, .subject-container {
@@ -39,24 +67,17 @@ form h2 {
     margin-bottom: 10px;
 }
 
-.user-container input, .subject-container input{
+.user-container input, 
+.subject-container input{
     width: 10rem;
     background-color: rgba(0, 0, 0, 0.089);
     border: none;
     border-radius: 5px;
     position: relative;
+    padding: 0.2rem 0.5rem;
 }
 
-.icon-user {
-    height: 20px;
-    width: 20px;
-}
-.icon-book {
-    height: 22px;
-    width: 22px;
-}
-
-.post-container {
+.addpost-container {
     margin-top: 20px;
     display: flex;
     flex-direction: column;
@@ -64,10 +85,88 @@ form h2 {
 }
 
 
-.post-container #post {
-    height: 10rem;
+.addpost-container #addpost {
+    height: 7rem;
     width: 13rem;
     border: none;
     background-color: rgba(0, 0, 0, 0.089);
     border-radius: 10px;
+    resize: none;
+}
+
+
+.btn-submit-container {
+    min-height: 4rem;
+}
+
+.btn-form {
+    margin-top: 20px;
+    width: 13rem;
+    margin-left: 3px;
+    padding: 8px 8px;
+    background-color: rgb(231, 184, 52);
+    border: none;
+    border-radius: 10px;
+    color: rgb(78, 78, 78);
+    font-weight: 600;
+    font-size: 0.9rem;
+    box-shadow: 4px 4px 10px 3px rgba(0, 0, 0, 0.11);
+    border-bottom: 3px solid rgb(201, 159, 69);
+    transition: .2s;
+}
+
+.btn-form:active {
+    transform: translateY(2px);
+    border-bottom: 1px solid rgb(201, 159, 69);
+}
+
+/* posts added */
+.posts-container {
+    gap: 12px;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.posts-container div{
+    background-color: rgb(231, 184, 52);
+    width: 18rem;
+    overflow: hidden;
+    border-radius: 12px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    
+    box-shadow: 3px 3px 10px 2px rgba(0, 0, 0, 0.171);
+    margin-bottom: 13px;
+}
+
+.posts-container div h3 {
+    background-color: rgb(231, 184, 52);
+}
+
+.posts-container div h4 {
+    background-color: white;
+    border: 2px solid rgb(231, 184, 52);
+    border-bottom-left-radius: 20px;
+    border-top-right-radius: 12px;
+    height: 1.8rem;
+    overflow: hidden;
+}
+
+.posts-container div p {
+    padding-block: 8px;
+    background-color: white;
+    grid-column: span 2;
+    height: 6rem;
+    overflow: hidden;
+}
+
+.posts-container div p span{
+    display: block;
+    text-align: justify;
+    overflow-y: auto;
+    height: 4.8rem;
+    padding: 0px 20px 0px 20px;
+    font-weight: 600;
 }
