@@ -1,15 +1,15 @@
 <h1>CRUD</h1>
 <section>
-    <form action="">
+    <form id="form">
         <h2>Faça um post</h2>
         <section class="input-container">
             <div class="user-container">
                 <label for="user">Seu nome: <span>|</span><img src="/images/icon-user.png" alt="icon-user" class="icon-user"></label>
-                <input type="text" name="user" id="user">
+                <input type="text" name="user" id="user" placeholder="seu nome">
             </div>
             <div class="subject-container">
                 <label for="subject">Assunto: <span>|</span><img src="/images/icon-book.png" alt="icon-book" class="icon-book"></label>
-                <input type="text" name="subject" id="subject">
+                <input type="text" name="subject" id="subject" placeholder="ex: animes">
             </div>
             <div class="addpost-container">
                 <label for="addpost">Postagem:</label>
@@ -24,9 +24,13 @@
 
 <section class="posts-container">
     <h2>Postagens feitas:</h2>
-    <div>
+    <div class="post">
         <h3>Kaique</h3>
         <h4>cotidiano</h4>
         <p><span>postagem teste Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur, quidem eum ipsam animi modi non officiis nobis provident placeat! Quod itaque nemo dolore voluptatibus obcaecati ullam dolorem libero facere? Possimus?</span></p>
+        <section class="post-buttons">
+            <button><i class="bi bi-trash-fill"></i></button>
+            <button><i class="bi bi-pen-fill"></i></button>
+        </section>
     </div>
 </section>

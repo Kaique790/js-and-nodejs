@@ -1,33 +1,41 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/styles/main.css">
     <link rel="stylesheet" href="/styles/home.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <title>CRUD</title>
 </head>
+
 <body>
-<header>
-    <div class="logo-container">
-        <img src="images/logo.png" class="logo-img">
-        </section>
-    </div>
-    <button class="btn-burguer">
-        ☰
-    </button>
-    <nav style="display: none;">
-        <ul>
-            <li>
-                O que é CRUD</li>
-            <li>
-                GitHub
-            </li>
-        </ul>
-    </nav>
-</header>
+    <header>
+        <nav class="nav">
+            <div class="logo-container">
+                <a href="#"><img src="images/logo.png" class="logo-img"></a>
+            </div>
+            <button class="btn-hamburger">
+            </button>
+            <ul>
+                <li>
+                    <a href="https://coodesh.com/blog/dicionario/o-que-e-crud/"><i class="bi bi-clipboard-data-fill"></i>CRUD?</a>
+                </li>
+                <li>
+                    <a href="https://github.com/Kaique790" target="_blank"><i class="bi bi-github"></i> GitHub</a>
+                </li>
+                <li>
+                    <a href="https://www.instagram.com/z_kaiq_z/" target="_blank"><i class="bi bi-file-person-fill"></i>Sobre</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
     <main>
         {{{body}}}
     </main>
+    <script src="/js/main.js"></script>
+    <script src="/js/home.js"></script>
 </body>
+
 </html>
