@@ -87,10 +87,11 @@ form h2 {
     border: none;
     border-radius: 5px;
     position: relative;
+    border: 1px solid transparent;
     padding: 0.2rem 0.5rem 0.270rem 0.5rem;
 }
 
-input.erro {
+input.error, .error {
     border: 1px solid red;
 }
 
