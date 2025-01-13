@@ -27,6 +27,8 @@ section {
     flex-direction: column;
     padding: 1.5rem;
     border-radius: 10px;
+    max-height: 40rem;
+    max-width: 28rem;
 }
 
 .container {
