@@ -9,4 +9,3 @@ const sequelize = new Sequelize('crud_posts', 'root', 'Kiaq7900', {
     dialect: "mysql",
     query: { raw: true }
 });
-

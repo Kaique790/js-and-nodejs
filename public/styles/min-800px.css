@@ -10,11 +10,11 @@
     header {
         background: linear-gradient(to right, rgb(233, 194, 66), rgb(247, 220, 64));
         width: 100vw;
-        position: relative;
+        position: static;
     }
 
     header nav{
-        position: relative;
+        position: static;
         max-width: 1300px;
         top: 0;
         display: flex;
