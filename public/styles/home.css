@@ -14,6 +14,7 @@ main h1 {
 }
 
 /* Form */
+
 form {
     border: 1px solid rgba(0, 0, 0, 0.158);
     min-height: 23rem;

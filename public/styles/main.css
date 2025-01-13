@@ -10,7 +10,8 @@
 /* rgb(21, 207, 161) */
 body {
     height: 100dvh;
-    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
     color: rgb(78, 78, 78);
     background: linear-gradient(120deg, rgba(255, 255, 255, 0.322) 65%, rgba(255, 255, 255, 0.185)), url('/images/bg-image.png');
     background-repeat: no-repeat;
@@ -32,7 +33,7 @@ a i {
 
 header {
     position: fixed;
-    padding: 0.3rem 1.3rem 0.3rem 1rem;
+    padding: 0.3rem 1.3rem 0.3rem 1.3rem;
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -140,4 +141,16 @@ header .active ul {
 .active .btn-hamburger::after {
     transform: rotate(-135deg);
     top: -7px;
+}
+
+/* footer */
+
+footer {
+    position: absolute;
+    bottom: -150px;
+    width: 100vw;
+    padding: 7px 0px 5px 0px;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.338);
+    color: rgba(0, 0, 0, 0.673);
 }
