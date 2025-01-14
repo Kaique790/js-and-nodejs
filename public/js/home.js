@@ -14,7 +14,7 @@ form.addEventListener('submit', (e) => {
     checkSubjectinput();
     checkPostinput();
 
-    if( checkUserinput() || checkSubjectinput() || checkPostinput()) {
+    if( checkUserinput() && checkSubjectinput() && checkPostinput()) {
         form.submit();
     } else {
         console.log('Campos não foram preenchidos')
@@ -46,7 +46,7 @@ function checkSubjectinput() {
 function checkPostinput() {
     postInputValue = postInput.value;
     if(postInputValue === "") {
-        postInput.style.border = '1px solid red';
+        postInput.style.border = '2px solid red';
         return false;
     } else {
         postInput.style.border = 'none'

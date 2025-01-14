@@ -1,5 +1,4 @@
 // Sequelize configuration
-
 const { query } = require('express');
 const Sequelize = require('sequelize');
 
@@ -9,3 +8,8 @@ const sequelize = new Sequelize('crud_posts', 'root', 'Kiaq7900', {
     dialect: "mysql",
     query: { raw: true }
 });
+
+module.exports = {
+    Sequelize: Sequelize,
+    sequelize: sequelize
+};
