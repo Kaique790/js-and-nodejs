@@ -38,6 +38,7 @@
                 </button>
             </a>
         </section>
+    </div>
     {{#each posts}}
     <div class="post">
         <h3>{{user}}</h3>
@@ -56,6 +57,16 @@
                 </button>
             </a>
         </section>
-    {{/each}}
+
+        <section class="edit-container">
+            <form action="">
+                <div class="edit-inputs">
+                    <input type="text" value="{{user}}">
+                    <input type="text" value="{{subject}}">
+                </div>
+                <textarea name="edit-content" id="edit-content">{{content}}</textarea>
+            </form>
+        </section>
     </div>
+    {{/each}}
 </section>
