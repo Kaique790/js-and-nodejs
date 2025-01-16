@@ -1,4 +1,5 @@
-const express = require('express'); const app = express();
+const express = require('express');
+const app = express();
 const handlebars = require('express-handlebars');
 const Post = require('./models/Post');
 const bodyParser = require('body-parser');
@@ -32,7 +33,7 @@ app.post('/add', (req, res) => {
     }).then(() => {
         res.redirect('/')
     }).catch((erro) => {
-        "Houve um erro na criaçãodo do post " + erro
+        "Houve um erro na criação do do post " + erro
     });
 });
 
@@ -41,12 +42,12 @@ app.get('/deletar/:id', (req, res) => {
         where: {
             id: req.params.id
         }
+    }).then(() => {
+        res.redirect('/');
+    }).catch((erro) => {
+        console.error('Houve um erro ao deletar a postagem:', erro); 
+        res.status(500).send('Erro ao deletar postagem');
     })
-        .then(() => {
-            res.redirect('/');
-        }).catch((erro) => {
-            console.error('Houve um erro ao deletar a postagem:', erro); res.status(500).send('Erro ao deletar postagem');
-        });
 });
 
 app.listen(8081, () => {
