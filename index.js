@@ -48,8 +48,41 @@ app.get('/delete/:id', (req, res) => {
     }).catch((error) => {
         console.log('Houve um erro ao deletar o post: ', error);
         res.status(500).send('Erro ao deletar postagem');
-    })
+    });
 });
+
+app.get('/edit/:id', (req, res) => {
+    Post.findByPk(req.params.id)
+        .then((post) => {
+            if (post) {
+                res.render('edit-post', { post: post })
+            } else {
+                res.status(400).send('Post não encontrado')
+            }
+        }).catch ((error) => {
+            console.log('erro ao carregar a página ', error);
+            res.status(500)
+        })
+});
+
+app.post('/edit/update/:id', (req, res) => {
+    const postId = req.params.id;
+    const { user, subject, content } = req.body;
+
+    Post.update({ user, subject, content }, { where: { id: postId } })
+        .then(([updated]) => {
+            if (updated) {
+                res.redirect('/');
+            } else {
+                res.status(404).send('Post não encontrado');
+            }
+        })
+        .catch(error => {
+            console.log('Houve um erro na edição do post:', error);
+            res.status(500).send('Erro ao atualizar post');
+        });
+});
+
 
 app.listen(port, () => {
     console.log(`Executando servidor na porta: ${port}`);

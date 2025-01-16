@@ -1,8 +1,10 @@
-form = document.getElementById('form');
+const form = document.getElementById('form');
 const userInput = document.getElementById('user');
 const subjectInput = document.getElementById('subject');
-const postInput = document.getElementById('addpost');
+const contentInput = document.getElementById('addpost');
 
+
+// check form
 function addError(input) {
     input.classList.add('error');
 };
@@ -10,46 +12,36 @@ function addError(input) {
 form.addEventListener('submit', (e) => {
     e.preventDefault()
 
-    checkUserinput(); 
-    checkSubjectinput();
-    checkPostinput();
+    const isUserValid = checkInput(userInput);
+    const isSubjectValid = checkInput(subjectInput);
+    const isContentValid = checkTextarea(contentInput);
 
-    if( checkUserinput() && checkSubjectinput() && checkPostinput()) {
-        form.submit();
-    } else {
-        console.log('Campos não foram preenchidos')
+    if(isUserValid && isSubjectValid && isContentValid) { 
+        form.submit(); 
+    } else { 
+        console.log('Campos não foram preenchidos corretamente'); 
     }
 });
 
-function checkUserinput() {
-    userInputValue = userInput.value;
-    if(userInputValue === "") {
-        addError(userInput);
-        return false
+function checkInput(input) {
+    InputValue = input.value;
+    if(InputValue === "") {
+        input.classList.add('error');
+        return false;
     } else {
-        userInput.classList.remove('error');
-        return true
+        input.classList.remove('error');
+        return true;
     };
 };
 
-function checkSubjectinput() {
-    subjectInputValue = subjectInput.value;
-    if(subjectInputValue === "") {
-        subjectInput.classList.add('error');
+function checkTextarea(textarea) {
+    textareaValue = textarea.value;
+    if(textareaValue === "") {
+        textarea.style.border = '2px solid red';
         return false;
     } else {
-        subjectInput.classList.remove('error');
-        return true
+        textarea.style.border = 'none'
+        return true;
     };
 };
 
-function checkPostinput() {
-    postInputValue = postInput.value;
-    if(postInputValue === "") {
-        postInput.style.border = '2px solid red';
-        return false;
-    } else {
-        postInput.style.border = 'none'
-        return true
-    };
-};

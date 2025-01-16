@@ -27,23 +27,24 @@
     <div class="post">
         <h3>Kaique</h3>
         <h4>CRUD</h4>
-        <p><span>Create, Read, Update, delete: criar, ver, editar e deletar postagens. Feito com Handlebars, CSS, NodeJS e MySQL.</span></p>
+        <p><span>Create, Read, Update, delete: criar, ver, editar e deletar postagens. Feito com Handlebars, CSS, NodeJS, Express e MySQL.</span></p>
         <section class="post-buttons">
-            <a href="/delete/{{id}}">
+            <a href="#">
                 <button><i class="bi bi-trash-fill"></i>
                 </button>
             </a>
-            <a href="">
+            <a href="#">
                 <button><i class="bi bi-pen-fill"></i>
                 </button>
             </a>
         </section>
     </div>
+    
     {{#each posts}}
     <div class="post">
         <h3>{{user}}</h3>
         <h4>{{subject}}</h4>
-        <p><span>{{{content}}}</span></p>
+        <p><span>{{content}}</span></p>
         
         <section class="post-buttons">
             <a href="/delete/{{id}}">
@@ -51,22 +52,11 @@
                     <i class="bi bi-trash-fill"></i>
                 </button>
             </a>
-            <a href="">
+            <a href="/edit/{{id}}" id="button-edit">
                 <button>
                     <i class="bi bi-pen-fill"></i>
                 </button>
             </a>
         </section>
-
-        <section class="edit-container">
-            <form action="">
-                <div class="edit-inputs">
-                    <input type="text" value="{{user}}">
-                    <input type="text" value="{{subject}}">
-                </div>
-                <textarea name="edit-content" id="edit-content">{{content}}</textarea>
-            </form>
-        </section>
-    </div>
     {{/each}}
 </section>
