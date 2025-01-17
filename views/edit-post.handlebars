@@ -2,16 +2,16 @@
             <form action="/edit/update/{{post.id}}" id="form-edit" method="POST">
                 <h1>Edite os campos: </h1>
                 <div class="edit-inputs">
-                    <div class="input-edit-container">
+                    <div class="input-edit-container" id="none">
                         <label for="user-edit">Seu nome:</label>
-                        <input type="text" value="{{post.user}}" class="user-edit" id="user-edit">
+                        <input type="text" value="{{post.user}}" class="user-edit" id="user-edit" name="useredit">
                     </div>
                     <div class="input-edit-container">
                         <label for="subject-edit">Assunto:</label>
-                        <input type="text" value="{{post.subject}}" class="subject-edit" id="subject-edit">
+                        <input type="text" value="{{post.subject}}" class="subject-edit" id="subject-edit" name="subjectedit">
                     </div>
                 </div>
-                <textarea name="edit-content" id="edit-content">{{post.content}}</textarea>
+                <textarea name="contentedit" id="edit-content">{{post.content}}</textarea>
                 <a href="">
                     <button type="submit">
                         Enviar

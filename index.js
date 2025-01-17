@@ -4,7 +4,7 @@ const app = express();
 const path = require('path');
 const bodyParser = require('body-parser');
 const exphbs = require('express-handlebars');
-const { where } =  require('sequelize');
+const { where } = require('sequelize');
 const Post = require('./models/Post')
 
 // config handlebars
@@ -26,6 +26,7 @@ app.get('/', (req, res) => {
         })
 });
 
+// rout add post
 app.post('/add', (req, res) => {
     Post.create({
         user: req.body.user,
@@ -34,10 +35,11 @@ app.post('/add', (req, res) => {
     }).then(() => {
         res.redirect('/')
     }).catch((error) => {
-        'Houve um na criação do post: ' + error
+        'Houve um erro na criação do post: ' + error
     });
 });
 
+// rout delte post
 app.get('/delete/:id', (req, res) => {
     Post.destroy({
         where: {
@@ -51,6 +53,7 @@ app.get('/delete/:id', (req, res) => {
     });
 });
 
+// routes edit post
 app.get('/edit/:id', (req, res) => {
     Post.findByPk(req.params.id)
         .then((post) => {
@@ -59,28 +62,26 @@ app.get('/edit/:id', (req, res) => {
             } else {
                 res.status(400).send('Post não encontrado')
             }
-        }).catch ((error) => {
+        }).catch((error) => {
             console.log('erro ao carregar a página ', error);
             res.status(500)
         })
 });
 
 app.post('/edit/update/:id', (req, res) => {
-    const postId = req.params.id;
-    const { user, subject, content } = req.body;
-
-    Post.update({ user, subject, content }, { where: { id: postId } })
-        .then(([updated]) => {
-            if (updated) {
-                res.redirect('/');
-            } else {
-                res.status(404).send('Post não encontrado');
-            }
-        })
-        .catch(error => {
-            console.log('Houve um erro na edição do post:', error);
-            res.status(500).send('Erro ao atualizar post');
-        });
+    const postId = req.params.id
+    const updatePost = {
+        user: req.body.useredit,
+        subject: req.body.subjectedit,
+        content: req.body.contentedit
+    }
+    Post.update(updatePost, {
+        where: { id: postId }
+    }).then(() => {
+        res.redirect('/')
+    }).catch((error) => {
+        'Houve um erro na atualização do post: ' + error
+    });
 });
 
 
