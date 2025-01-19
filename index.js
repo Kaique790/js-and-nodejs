@@ -39,7 +39,7 @@ app.post('/add', (req, res) => {
     });
 });
 
-// rout delte post
+// rout delete post
 app.get('/delete/:id', (req, res) => {
     Post.destroy({
         where: {
