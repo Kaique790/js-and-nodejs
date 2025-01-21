@@ -1,0 +1,29 @@
+<div class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8 text-center">
+      <h1 class="display-4">Bem-vindo ao Seu Blog</h1>
+      <p class="lead">Faça, veja e edite suas postagens</p>
+      <a href="#" class="btn btn-primary btn-lg">Crie uma conta</a>
+    </div>
+  </div>
+</div>
+
+<hr>
+
+<h2>Postagens recentes: </h2>
+<div class="card mt-4">
+{{#each postagens}}
+    <div class="card-body">
+        <h4>Titulo: {{titulo}}</h4>
+        <p>Descrição: {{descricao}}</p>
+        <a href="/postagens/{{slug}}">
+          <buttoon class="btn btn-success">Ver postagem</buttoon>
+        </a>
+        <hr>
+        <p>{{categoria.nome}}</p>
+    </div>
+    
+{{else}}
+ <h4> Nenhuma postagem</h4>
+{{/each}}
+</div>
