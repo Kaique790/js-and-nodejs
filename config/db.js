@@ -1,4 +1,5 @@
 const mongo = require('mongoose');
+mongo.Promise = global.Promise;
 require('dotenv').config();
 
 // Credencials

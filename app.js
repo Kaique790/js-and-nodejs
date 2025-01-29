@@ -1,8 +1,12 @@
 const express = require('express');
-const connectDB = require('./config/db');
 const app = express();
-const PORT = 3000;
+const exphbs = require('express-handlebars');
+
+const connectDB = require('./config/db');
 const jwt = require('jsonwebtoken');
+
+const PORT = 3000;
+
 require('./config/db');
 
 const userRoutes = require('./routes/user')
@@ -10,9 +14,16 @@ const userRoutes = require('./routes/user')
 // config JSON
 app.use(express.json());
 
+// config hablebars
+app.engine('hbs', exphbs.engine({
+    extname: 'hbs',
+    defaultLayout: 'main'
+}));
+app.set('view engine', 'hbs');
+
 // Public Route
 app.get('/', (req, res) => {
-    res.status(200).json({ msg: 'Public Page' });
+    res.render('home');
 });
 
 // routes user
