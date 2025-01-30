@@ -5,13 +5,18 @@ const exphbs = require('express-handlebars');
 const connectDB = require('./config/db');
 const jwt = require('jsonwebtoken');
 
+// Import checkToken
+const checkToken = require('./middlewares/authMiddleware');
+
 const PORT = 3000;
 
 require('./config/db');
 
-const userRoutes = require('./routes/user')
+// Import routes
+const userRoutes = require('./routes/userRoutes')
 
 // config JSON
+app.use(express.urlencoded({ extended: true }))
 app.use(express.json());
 
 // config hablebars
@@ -25,6 +30,12 @@ app.set('view engine', 'hbs');
 app.get('/', (req, res) => {
     res.render('home');
 });
+
+// Private Route
+app.get('/user/:id', checkToken, (req, res) => {
+    res.render('home');
+});
+
 
 // routes user
 app.use('/user', userRoutes);
