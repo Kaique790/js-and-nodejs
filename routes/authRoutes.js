@@ -6,14 +6,14 @@ require('../controllers/authController');
 
 // register
 router.get('/register', (req, res) => {
-    res.render('user/register');
+    res.render('auth/register');
 });
 
 router.post('/register', register);
 
 // Login
 router.get('/login', (req, res) => {
-    res.render('user/login')
+    res.render('auth/login')
 })
 
 router.post('/login', login);
