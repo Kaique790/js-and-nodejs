@@ -5,7 +5,6 @@ const User = require('../models/User');
 
 const ADMIN_CODE = process.env.ADMIN_CODE
 
-
 // registration logic
 const register = async (req, res) => {
 
@@ -47,7 +46,7 @@ const login = async (req, res) => {
     const user = await User.findOne({ email });
 
     if (!email || !password) return res.status(422).json({ msg: 'Todos os campos são obrigatórios!' });
-    if (!user) return res.status(404).json({ msg: 'Usuário não encontrado!' });
+    if (!user) return res.status(422).json({ msg: 'Usuário não encontrado!' });
 
     // check if password exist
     const checkPassword = await bcrypt.compare(password, user.password);
@@ -56,8 +55,9 @@ const login = async (req, res) => {
     //Login in
     try {
         const SECRET = process.env.SECRET;
-        const token = jwt.sign({ id: user._id }, SECRET);
-        res.status(200).json({ msg: 'Logado com sucesso', token });
+        const id = user._id;
+        const token = jwt.sign({ id }, SECRET);
+        res.status(200).json({ token, id });
     } catch (err) {
         console.error(err);
         res.status(500).json({ msg: 'Houve um erro inesperado. Tente novamente!' });

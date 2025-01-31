@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const exphbs = require('express-handlebars');
+const path = require('path')
 
 const connectDB = require('./config/db');
 const jwt = require('jsonwebtoken');
@@ -12,7 +13,8 @@ const { checkToken, isAdmin } = require('./middlewares/authMiddleware');
 
 const PORT = 3000;
 
-require('./config/db');
+// Statics
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Import routes
 const userRoutes = require('./routes/authRoutes')
@@ -34,20 +36,11 @@ app.get('/', (req, res) => {
 });
 
 // Private Route
-app.get('/user/:id', checkToken, async (req, res) => {
+app.get('/users/:id', checkToken, async (req, res) => {
     const id = req.params.id;
 
     // check if user exists
-    try {
-        const user = await User.findById(id, '-password');
-
-        if (!user) return res.status(404).json({ msg: 'Usuário não encontrado' });
-        res.status(200).json({ msg: 'oi' });
-        
-    } catch (error) {
-        res.status(500).json({ msg: 'Houve um erro inesperado' });
-    }
-
+    res.render('user/index.hbs')
 });
 
 // Admin route

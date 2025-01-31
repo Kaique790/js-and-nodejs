@@ -6,13 +6,15 @@ const checkToken = (req, res, next) => {
 
     const tokenHeader = req.headers['authorization'];
     const token = tokenHeader && tokenHeader.split(' ')[1];
-    if (!token) return res.status(401).json({ msg: 'Não autorizado' });
+    if (!token) return res.status(401).json({ msg: 'Não autorizado111' });
 
     try {
-        jwt.verify(token, SECRET);
+        const verified = jwt.verify(token, SECRET);
+        req.user = verified;
+        
         next();
     } catch (err) {
-        res.status(401).json({ msg: 'Não autorizado!' });
+        res.status(401).json({ msg: 'Não autorizado222!' });
     }
 
 };
