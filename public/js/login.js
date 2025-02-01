@@ -21,13 +21,11 @@ form.addEventListener('submit', async (e) => {
         const data = await response.json();
 
         if(response.ok) {
-            
-            const token = data.token
-
-            localStorage.setItem('token', token);
-
             window.location.href = `/users/${data.id}`;
+        } else {
+            console.log('Erro ao logar: ', data.msg || 'Erro desconhecido...');
         }
+
         
     } catch(err) {
         console.log('Houve um erro ao logar: ', err)

@@ -57,7 +57,9 @@ const login = async (req, res) => {
         const SECRET = process.env.SECRET;
         const id = user._id;
         const token = jwt.sign({ id }, SECRET);
-        res.status(200).json({ token, id });
+        res.cookie('token', token)
+            .status(200)
+            .json({ token, id });
     } catch (err) {
         console.error(err);
         res.status(500).json({ msg: 'Houve um erro inesperado. Tente novamente!' });

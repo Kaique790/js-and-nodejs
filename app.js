@@ -1,5 +1,7 @@
 const express = require('express');
 const app = express();
+const cookieParser = require('cookie-parser');
+
 const exphbs = require('express-handlebars');
 const path = require('path')
 
@@ -16,12 +18,15 @@ const PORT = 3000;
 // Statics
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Import routes
-const userRoutes = require('./routes/authRoutes')
+// Cookies
+app.use(cookieParser());
 
 // config JSON
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json());
+
+// Import routes
+const userRoutes = require('./routes/authRoutes');
 
 // config hablebars
 app.engine('hbs', exphbs.engine({
@@ -36,7 +41,7 @@ app.get('/', (req, res) => {
 });
 
 // Private Route
-app.get('/users/:id', checkToken, async (req, res) => {
+app.get('/user/home/:id', checkToken, async (req, res) => {
     const id = req.params.id;
 
     // check if user exists
@@ -44,7 +49,7 @@ app.get('/users/:id', checkToken, async (req, res) => {
 });
 
 // Admin route
-app.get('/admin', checkToken, isAdmin, async (req, res) => {
+app.get('/admin/:id', checkToken, isAdmin, async (req, res) => {
      
     try {
         const users = await User.find().lean();
