@@ -1,0 +1,24 @@
+<h1>Novo post</h1>
+
+<form action="post" method="POST">
+    <div>
+        <label for="title">Título: </label>
+        <input type="text" id="title">
+    </div>
+    <div>
+        <label for="content">Conteúdo: </label>
+        <input type="text" id="content">
+    </div>
+    <div>
+        <select name="categorie">
+            <option selected>Selecione uma categoria</option>
+            {{#each categories}}
+            <option value="{{_id}}">{{name}}</option>
+            {{/each}}
+        </select>
+    </div>
+    <div>
+        <label for="title">Título</label>
+        <input type="text" id="title">
+    </div>
+</form>

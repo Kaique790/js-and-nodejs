@@ -48,14 +48,14 @@ app.get('/admin/:id', checkToken, isAdmin, async (req, res) => {
         const users = await User.find().lean();
         res.render('admin/index', { users });
     } catch(err) {
-        res.status(401).json({ msg: 'Erro aorenderizar os usuários' })
+        res.status(401).json({ msg: 'Erro ao renderizar os usuários' })
     }
     
 });
 
-// routes user
+// routes
 app.use('/auth', authRoutes);
-app.use('/user', userRoutes);
+app.use('/user/:name', checkToken, userRoutes);
 
 
 connectDB();

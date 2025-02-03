@@ -15,13 +15,13 @@ form.addEventListener('submit', async (e) => {
             headers: {
                 'Content-type': 'application/json'
             },
-            body: JSON.stringify({ email, password });
+            body: JSON.stringify({ email, password })
         });
 
         const data = await response.json();
 
         if(response.ok) {
-            window.location.href = `/user/home/${data.id}`;
+            window.location.href = `/user/${data.name}/home`;
         } else {
             console.log('Erro ao logar: ', data.msg || 'Erro desconhecido...');
         }

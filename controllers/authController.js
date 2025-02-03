@@ -5,7 +5,7 @@ const User = require('../models/User');
 
 const ADMIN_CODE = process.env.ADMIN_CODE
 
-// registration logic
+// registration
 const register = async (req, res) => {
 
     const { name, email, password, confirmpassword, role, adminCodeProvided } = req.body;
@@ -18,29 +18,31 @@ const register = async (req, res) => {
     if (role === 'admin' && adminCodeProvided != ADMIN_CODE) return res.status(422).json({ msg: 'código de autenticação inválido!' });
 
     // Check if user exist
-    const userExist = await User.findOne({ email });
-    if (userExist) return res.status(422).json({ msg: 'Usuário já cadastrado!' });
+    const registeredName = await User.findOne({ name });
+    const registeredEmail = await User.findOne({ email });
+    if (registeredName) return res.status(422).json({ msg: 'Nome de usuário já cadastrado!' });
+    if (registeredEmail) return res.status(422).json({ msg: 'Email já cadastrado!' });
 
     // Create password
     const salt = await bcrypt.genSalt(12);
     const passwordHash = await bcrypt.hash(password, salt);
 
     // Create User
-    const user = new User({
+    const newUser = new User({
         name,
         email,
         password: passwordHash
     });
 
     try {
-        await user.save();
+        await newUser.save();
         res.status(201).json({ msg: 'Usuário cadastrado com sucesso!' });
     } catch (err) {
         res.status(500).json({ msg: 'Houve um erro inesperado no servidor!' });
     }
 };
 
-// Login logic
+// Login
 const login = async (req, res) => {
     const { email, password } = req.body;
     const user = await User.findOne({ email });
@@ -55,11 +57,11 @@ const login = async (req, res) => {
     //Login in
     try {
         const SECRET = process.env.SECRET;
-        const id = user._id;
+        const { name, id } = user;
         const token = jwt.sign({ id }, SECRET);
         res.cookie('token', token, { httpOnly: true })
             .status(200)
-            .json({ token, id });
+            .json({ token, name });
     } catch (err) {
         console.error(err);
         res.status(500).json({ msg: 'Houve um erro inesperado. Tente novamente!' });

@@ -1,6 +1,7 @@
 const mongo = require('mongoose');
+const model = mongo.model;
 
-const User = mongo.model('User', {
+const User = model('Users', {
     name: {
         type: String,
         required: true
