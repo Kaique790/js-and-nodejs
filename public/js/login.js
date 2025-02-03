@@ -10,25 +10,24 @@ form.addEventListener('submit', async (e) => {
     const password = inputPassword.value;
 
     try {
-        const response = await fetch('/user/login', {
+        const response = await fetch('/auth/login', {
             method: 'POST',
             headers: {
                 'Content-type': 'application/json'
             },
-            body: JSON.stringify({ email, password })
+            body: JSON.stringify({ email, password });
         });
 
         const data = await response.json();
 
         if(response.ok) {
-            window.location.href = `/users/${data.id}`;
+            window.location.href = `/user/home/${data.id}`;
         } else {
             console.log('Erro ao logar: ', data.msg || 'Erro desconhecido...');
         }
 
-        
     } catch(err) {
-        console.log('Houve um erro ao logar: ', err)
+        console.log('Houve um erro ao logar: ', err);
     }
     
 });

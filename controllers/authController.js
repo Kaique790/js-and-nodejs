@@ -57,7 +57,7 @@ const login = async (req, res) => {
         const SECRET = process.env.SECRET;
         const id = user._id;
         const token = jwt.sign({ id }, SECRET);
-        res.cookie('token', token)
+        res.cookie('token', token, { httpOnly: true })
             .status(200)
             .json({ token, id });
     } catch (err) {

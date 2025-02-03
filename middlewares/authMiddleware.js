@@ -23,12 +23,10 @@ const isAdmin = async (req, res, next) => {
     const id = req.params.id
     try {
         user = await User.findOne({ _id: id });
-        if(user.role === 'admin') return next()
+        if(user.role === 'admin') return next();
     } catch(err) {
-        res.status(401).json({ msg: 'Erro ao consultar: ', err });
+        res.status(401).json({ msg: 'Usuário não encontrador: ', err });
     }
-
-    res.status(401).json({ msg: 'Não autorizado!' });
 }
 
 module.exports = { checkToken, isAdmin };
