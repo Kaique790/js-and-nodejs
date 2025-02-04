@@ -54,14 +54,14 @@ const login = async (req, res) => {
     const checkPassword = await bcrypt.compare(password, user.password);
     if (!checkPassword) return res.status(422).json({ msg: 'Senha inválida!' });
 
-    //Login in
+    // success login
     try {
         const SECRET = process.env.SECRET;
         const { name, id } = user;
         const token = jwt.sign({ id }, SECRET);
         res.cookie('token', token, { httpOnly: true })
             .status(200)
-            .json({ token, name });
+            .redirect(`/user/${user.name}/`);
     } catch (err) {
         console.error(err);
         res.status(500).json({ msg: 'Houve um erro inesperado. Tente novamente!' });

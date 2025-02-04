@@ -6,4 +6,13 @@
 
 {{#each categories}}
 <h4>{{name}}</h4>
+<button onclick="delCategorie('{{_id}}')" style="background-color: blue; color: white;">DELETAR</button>
+
 {{/each}}
+
+{{#each posts}}
+<h4>{{title}}</h4>
+<h4>{{owner.name}}</h4>
+{{/each}}
+
+<script src="/js/categorie.js"></script>

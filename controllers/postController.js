@@ -3,8 +3,9 @@ import User from '../models/User.js'
 
 // Send post route
 const sendPost = async (req, res) => {
-    const owner = req.params.name;
-    const user = await User.findOne({ name: owner });
+    const userName = req.userName;
+    const user = await User.findOne({ name: userName });
+    const userId = user._id
     const { title, content, categorie } = req.body;
 
     if (!title || !content || !categorie) {
@@ -15,12 +16,12 @@ const sendPost = async (req, res) => {
         title,
         content,
         categorie,
-        owner
+        owner: userId
     });
 
     try {
         await newPost.save();
-        res.status(201).redirect(`/user/${user.name}`)
+        res.status(201).redirect(`/user/${userName}`)
     } catch (err) {
         res.status(500).render('errors/notFound');
         console.log('Erro ao tentar salvar postagem: ', err);

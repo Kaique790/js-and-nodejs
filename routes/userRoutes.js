@@ -2,23 +2,24 @@ import express from 'express'
 const router = express.Router();
 
 import sendPost from '../controllers/postController.js'
-import Categorie from '../models/Categorie.js'
 
 // models
-import User from '../models/User.js'
+import Categorie from '../models/Categorie.js'
 
 // User home
-router.get('/home', async (req, res) => {
-    res.render('user/index.hbs');
+router.get('/', async (req, res) => {
+    const userName = req.userName
+    res.render('user/index.hbs', { userName });
 });
 
 // Send post
-router.get('/post', async (req, res) => {
+router.get('/post/add', async (req, res) => {
+    const userName = req.userName
     const categories = await Categorie.find().lean();
-    res.render('user/post', { categories });
+    res.render('user/addPost', { categories, userName });
 });
 
-router.post('/post', sendPost);
+router.post('/post/add', sendPost);
 
 
 export default router

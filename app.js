@@ -15,8 +15,9 @@ import User from './models/User.js'
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// Import checkToken
+// Import middlewares
 import { checkToken, isAdmin } from './middlewares/authMiddleware.js'
+import getUserName from './middlewares/getUserNameMiddleware.js'
 
 const PORT = 3000;
 
@@ -50,8 +51,8 @@ app.get('/', (req, res) => {
 
 // routes
 app.use('/auth', authRoutes);
-app.use('/user/:name', checkToken, userRoutes);
-app.use('/admin/:name', checkToken, isAdmin, adminRoutes);
+app.use('/user/:name', checkToken, getUserName, userRoutes);
+app.use('/admin/:name', checkToken, getUserName, isAdmin, adminRoutes);
 
 
 connectDB();
