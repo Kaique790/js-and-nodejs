@@ -15,3 +15,5 @@ const addCategorie = async (req, res) => {
         res.status(500).json({ msg: 'Não foi possivel salvar a categoria devido a um erro interno' });
     }
 }
+
+export default addCategorie

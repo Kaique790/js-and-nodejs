@@ -33,6 +33,7 @@ app.use(express.json());
 // Import routes 
 import authRoutes from './routes/authRoutes.js'
 import userRoutes from './routes/userRoutes.js'
+import adminRoutes from './routes/adminRoutes.js'
 
 // config hablebars
 app.engine('hbs', exphbs.engine({
@@ -46,21 +47,11 @@ app.get('/', (req, res) => {
     res.render('home');
 });
 
-// Admin route
-app.get('/admin/:id', checkToken, isAdmin, async (req, res) => {
-     
-    try {
-        const users = await User.find().lean();
-        res.render('admin/index', { users });
-    } catch(err) {
-        res.status(401).json({ msg: 'Erro ao renderizar os usuários' })
-    }
-    
-});
 
 // routes
 app.use('/auth', authRoutes);
 app.use('/user/:name', checkToken, userRoutes);
+app.use('/admin/:name', checkToken, isAdmin, adminRoutes);
 
 
 connectDB();

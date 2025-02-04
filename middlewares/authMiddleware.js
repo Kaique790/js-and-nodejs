@@ -19,13 +19,13 @@ const checkToken = (req, res, next) => {
 };
 
 const isAdmin = async (req, res, next) => {
-    const id = req.params.id
+    const name = req.params.name
     try {
-        user = await User.findOne({ _id: id });
+        const user = await User.findOne({ name });
         if(user.role === 'admin') return next();
         res.render('errors/notFound');
     } catch(err) {
-        res.status(401).json({ msg: 'Usuário não encontrador: ', err });
+        res.status(401).json({ msg: 'Usuário não encontrado: ', err });
     }
 }
 
