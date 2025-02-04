@@ -1,17 +1,22 @@
-const express = require('express');
+import express from 'express'
 const app = express();
-const cookieParser = require('cookie-parser');
+import cookieParser from 'cookie-parser'
 
-const exphbs = require('express-handlebars');
-const path = require('path')
+import exphbs from 'express-handlebars'
 
-const connectDB = require('./config/db');
-const jwt = require('jsonwebtoken');
+import { fileURLToPath } from 'url';
+import path from 'path'
 
-const User = require('./models/User');
+import connectDB from './config/db.js'
+
+import User from './models/User.js'
+
+// __dirname
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // Import checkToken
-const { checkToken, isAdmin } = require('./middlewares/authMiddleware');
+import { checkToken, isAdmin } from './middlewares/authMiddleware.js'
 
 const PORT = 3000;
 
@@ -26,8 +31,8 @@ app.use(express.urlencoded({ extended: true }))
 app.use(express.json());
 
 // Import routes 
-const authRoutes = require('./routes/authRoutes');
-const userRoutes = require('./routes/userRoutes');
+import authRoutes from './routes/authRoutes.js'
+import userRoutes from './routes/userRoutes.js'
 
 // config hablebars
 app.engine('hbs', exphbs.engine({

@@ -1,6 +1,8 @@
-const mongo = require('mongoose');
+import mongo from 'mongoose'
+import dotenv from 'dotenv'
+
 mongo.Promise = global.Promise;
-require('dotenv').config();
+dotenv.config();
 
 // Credencials
 const userDB = process.env.USER_DB;
@@ -15,4 +17,4 @@ const connectDB = async () => {
     }
 };
 
-module.exports = connectDB;
+export default connectDB;

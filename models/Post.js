@@ -1,4 +1,4 @@
-const mongo = require('mongoose');
+import mongo from 'mongoose'
 const Schema = mongo.Schema;
 const model = mongo.model;
 
@@ -28,4 +28,4 @@ const Post = model('Posts', {
     }
 });
 
-module.exports = Post;
+export default Post

@@ -1,10 +1,11 @@
-const router = require('express').Router();
+import express from 'express'
+const router = express.Router();
 
-const sendPost = require('../controllers/postController');
-const Categorie = require('../models/Categorie')
+import sendPost from '../controllers/postController.js'
+import Categorie from '../models/Categorie.js'
 
 // models
-const User = require('../models/User');
+import User from '../models/User.js'
 
 // User home
 router.get('/home', async (req, res) => {
@@ -20,4 +21,4 @@ router.get('/post', async (req, res) => {
 router.post('/post', sendPost);
 
 
-module.exports = router;
+export default router

@@ -1,4 +1,4 @@
-const Categorie = require('../models/Categorie');
+import Categorie from '../models/Categorie.js'
 
 const addCategorie = async (req, res) => {
     const name = req.body.name

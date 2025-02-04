@@ -1,6 +1,5 @@
-const jwt = require('jsonwebtoken');
-const User = require('../models/User');
-const ADMIN_CODE = process.env.ADMIN_CODE
+import jwt from 'jsonwebtoken'
+import User from '../models/User.js'
 const SECRET = process.env.SECRET;
 
 const checkToken = (req, res, next) => {
@@ -24,10 +23,10 @@ const isAdmin = async (req, res, next) => {
     try {
         user = await User.findOne({ _id: id });
         if(user.role === 'admin') return next();
-        res.render('errors/notFound')
+        res.render('errors/notFound');
     } catch(err) {
         res.status(401).json({ msg: 'Usuário não encontrador: ', err });
     }
 }
 
-module.exports = { checkToken, isAdmin };
+export { checkToken, isAdmin }

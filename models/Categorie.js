@@ -1,4 +1,4 @@
-const mongo = require('mongoose');
+import mongo from 'mongoose'
 const model = mongo.model;
 
 const Categorie = model('Categories', {
@@ -11,4 +11,4 @@ const Categorie = model('Categories', {
     }
 });
 
-module.exports = Categorie;
+export default Categorie

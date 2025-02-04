@@ -1,5 +1,5 @@
-const Post = require('../models/Post');
-const User = require('../models/User');
+import Post from '../models/Post.js'
+import User from '../models/User.js'
 
 // Send post route
 const sendPost = async (req, res) => {
@@ -27,4 +27,4 @@ const sendPost = async (req, res) => {
     }
 }
 
-module.exports = sendPost
+export default sendPost

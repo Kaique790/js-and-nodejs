@@ -1,7 +1,7 @@
-const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
+import bcrypt from 'bcryptjs'
+import jwt from 'jsonwebtoken'
 
-const User = require('../models/User');
+import User from '../models/User.js'
 
 const ADMIN_CODE = process.env.ADMIN_CODE
 
@@ -69,4 +69,4 @@ const login = async (req, res) => {
 
 }
 
-module.exports = { register, login }
+export { register, login }

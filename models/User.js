@@ -1,4 +1,4 @@
-const mongo = require('mongoose');
+import mongo from 'mongoose'
 const model = mongo.model;
 
 const User = model('Users', {
@@ -21,4 +21,4 @@ const User = model('Users', {
     }
 });
 
-module.exports = User;
+export default User;
