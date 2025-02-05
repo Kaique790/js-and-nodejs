@@ -10,7 +10,7 @@ const addCategorie = async (req, res) => {
     try {
         const newCategorie = new Categorie({ name });
         await newCategorie.save();
-        res.status(201).json({ msg: 'Nova categoria adicionada!' });
+        res.status(201).redirect(`/admin/${req.userName}`);
     } catch (err) {
         res.status(500).json({ msg: 'Não foi possivel salvar a categoria devido a um erro interno' });
     }

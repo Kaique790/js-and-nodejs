@@ -2,7 +2,7 @@ import mongo from 'mongoose'
 const Schema = mongo.Schema;
 const model = mongo.model;
 
-const Post = model('Posts', {
+const Post = model('Post', {
     title: {
         type: String, 
         required: true
@@ -13,12 +13,12 @@ const Post = model('Posts', {
     },
     categorie: {
         type: Schema.Types.ObjectId,
-        ref: ('Categories'),
+        ref: ('Categorie'),
         required: true
     },
     owner: {
         type: Schema.Types.ObjectId,
-        ref: ('Users'),
+        ref: ('User'),
         required: true
     },
     date: {

@@ -1,7 +1,7 @@
 import mongo from 'mongoose'
 const model = mongo.model;
 
-const User = model('Users', {
+const User = model('User', {
     name: {
         type: String,
         required: true
