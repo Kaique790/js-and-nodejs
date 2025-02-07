@@ -11,7 +11,7 @@ const Post = model('Post', {
         type: String, 
         required: true
     },
-    categorie: {
+    category: {
         type: Schema.Types.ObjectId,
         ref: ('Category'),
         required: true

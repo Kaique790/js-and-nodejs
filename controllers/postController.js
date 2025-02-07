@@ -6,16 +6,16 @@ const sendPost = async (req, res) => {
     const userName = req.userName;
     const user = await User.findOne({ name: userName });
     const userId = user._id
-    const { title, content, categorie } = req.body;
+    const { title, content, category } = req.body;
 
-    if (!title || !content || !categorie) {
+    if (!title || !content || !category) {
         return res.status(422).json('Todos os campos são obrigatórios');
     }
 
     const newPost = new Post({
         title,
         content,
-        categorie,
+        category,
         owner: userId
     });
 

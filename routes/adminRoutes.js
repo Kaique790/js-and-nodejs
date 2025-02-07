@@ -13,6 +13,7 @@ router.get('/', async (req, res) => {
         const users = await User.find().lean();
         const categories = await Category.find().lean();
         const posts = await Post.find().populate('owner').lean();
+
         res.render('admin/index', { users, categories, posts });
     } catch (err) {
         res.status(401).json({ msg: 'Erro ao renderizar os usuários' });
@@ -21,7 +22,7 @@ router.get('/', async (req, res) => {
 
 // CRUD categories
 router.get('/category', async (req, res) => {
-    const userName = req.userName
+    const userName = req.userName;
 
     res.render('admin/addCategory.hbs', { userName });
 });
@@ -29,7 +30,7 @@ router.get('/category', async (req, res) => {
 router.post('/category', addCategory);
 
 router.delete('/category', async (req, res) => {
-    const categorieId = req.body.categorieId
+    const categorieId = req.body.categorieId;
     try {
         await Category.findOneAndDelete({ _id: categorieId });
         await Post.deleteMany({ categorie: categorieId });
@@ -40,8 +41,8 @@ router.delete('/category', async (req, res) => {
 });
 
 router.patch('/category', async (req, res) => {
-    const name = req.body.name
-    const id = req.body.categoryId
+    const name = req.body.name;
+    const id = req.body.categoryId;
 
     if (!name || !id) return res.status(400).json({ msg: 'Categoria inválida' });
 

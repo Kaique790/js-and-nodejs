@@ -2,3 +2,30 @@
 
 
 <h2><a href="/admin/{{userName}}">ADMIN</a></h2>
+<h2><a href="/user/{{userName}}/post">ADD post</a></h2>
+
+{{#each posts}}
+    <h4>{{content}}</h4>
+    <button onclick="delPost('{{_id}}')">DELETAR</button>
+    <form onsubmit="editPost(event, '{{_id}}')" id="post-{{_id}}">
+        <div>
+        <label for="title">Título: </label>
+        <input type="text" id="title-{{_id}}" name="title">
+    </div>
+    <div>
+        <label for="content">Conteúdo: </label>
+        <input type="text" id="content-{{_id}}" name="content">
+    </div>
+    <div>
+        <select name="category" id="category-{{_id}}">
+            <option selected>Selecione uma categoria: </option>
+            {{#each categories}}
+            <option value="{{_id}}">{{name}}</option>
+            {{/each}}
+        </select>
+    </div>
+    <button type="submit">ENVIAR</button>
+    </form>
+{{/each}}
+
+<script src="/js/post.js"></script>

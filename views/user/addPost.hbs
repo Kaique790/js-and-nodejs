@@ -1,6 +1,6 @@
 <h1>Novo post</h1>
 
-<form action="/user/{{userName}}/post/add" method="POST">
+<form action="/user/{{userName}}/post" method="POST">
     <div>
         <label for="title">Título: </label>
         <input type="text" id="title" name="title">
@@ -10,7 +10,7 @@
         <input type="text" id="content" name="content">
     </div>
     <div>
-        <select name="categorie">
+        <select name="category">
             <option selected>Selecione uma categoria</option>
             {{#each categories}}
             <option value="{{_id}}">{{name}}</option>
