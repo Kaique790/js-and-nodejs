@@ -5,9 +5,17 @@
 {{/each}}
 
 {{#each categories}}
-<h4>{{name}}</h4>
-<button onclick="delCategorie('{{_id}}')" style="background-color: blue; color: white;">DELETAR</button>
-<button onclick="editCategorie('{{_id}}')" style="background-color: yellow; color: rgb(0, 0, 0);">EDITAR</button>
+<h4 id="name-{{_id}}">{{name}}</h4>
+<button onclick="delCategory('{{_id}}')">DELETAR</button>
+
+<form onsubmit="editCategory(event, '{{_id}}')">
+    <div>
+        <label for="{{_id}}">Nome: </label>
+        <input type="text" id="{{_id}}">
+    </div>
+
+    <button type="submit">EDITAR</button>
+</form>
 {{/each}}
 
 {{#each posts}}
@@ -15,4 +23,4 @@
 <h4>{{owner.name}}</h4>
 {{/each}}
 
-<script src="/js/categorie.js"></script>
+<script src="/js/category.js"></script>

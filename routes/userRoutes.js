@@ -4,7 +4,7 @@ const router = express.Router();
 import sendPost from '../controllers/postController.js'
 
 // models
-import Categorie from '../models/Categorie.js'
+import Category from '../models/Category.js'
 
 // User home
 router.get('/', async (req, res) => {
@@ -15,7 +15,7 @@ router.get('/', async (req, res) => {
 // Send post
 router.get('/post/add', async (req, res) => {
     const userName = req.userName
-    const categories = await Categorie.find().lean();
+    const categories = await Category.find().lean();
     res.render('user/addPost', { categories, userName });
 });
 

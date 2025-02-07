@@ -13,7 +13,7 @@ const Post = model('Post', {
     },
     categorie: {
         type: Schema.Types.ObjectId,
-        ref: ('Categorie'),
+        ref: ('Category'),
         required: true
     },
     owner: {

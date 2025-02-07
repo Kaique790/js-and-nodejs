@@ -1,7 +1,7 @@
 import mongo from 'mongoose'
 const model = mongo.model;
 
-const Categorie = model('Categorie', {
+const Category = model('Category', {
     name: {
         type: String
     },
@@ -11,4 +11,4 @@ const Categorie = model('Categorie', {
     }
 });
 
-export default Categorie
+export default Category
