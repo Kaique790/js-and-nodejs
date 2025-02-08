@@ -21,6 +21,12 @@ router.get('/', async (req, res) => {
     
 });
 
+//logout 
+router.post('/logout', (req, res) => {
+    res.clearCookie('token');
+    res.redirect('/auth/login');
+})
+
 // CRUD posts
 router.get('/post', async (req, res) => {
     const userName = req.userName;
@@ -40,26 +46,30 @@ router.delete('/post', async (req, res) => {
 
     try {
         await Post.findOneAndDelete({ _id: postId });
-        res.status(200).json({ msg: 'Postagem deletada com sucesso!' })
+        res.status(200).json({ msg: 'Postagem deletada com sucesso!' });
     } catch(err) {
         res.status(404).json({ msg: 'Postagem não encontrada.'});
     }
 })
 
-router.patch('/posts', async (req, res) => {
-    const userName = req.userName
+router.patch('/post', async (req, res) => {
+    const userId = req.userId
     const { postId, title, content, category } = req.body
     const newData = {
         title,
         content,
         category,
-        owner: userName
+        owner: userId
     }
-
     try {
-        await Post.findOneAndUpdate({ _id: postId }, newData);
+        const postExist = await Post.findById(postId);
+        if (!postExist) return res.status(400).json({ msg: 'Postagem não encontrada.' });
+
+        const newPost = await Post.findByIdAndUpdate(postId, newData, { new: true });
+        res.status(200).json({ newPost }) ;
     } catch(err) {
-        res.status(404).json({ msg: 'Postagem não encontrada.' })
+        console.log(err)
+        res.status(200).json({ error: err.message });
     }
 });
 

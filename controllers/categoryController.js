@@ -4,7 +4,7 @@ const addCategory = async (req, res) => {
     const name = req.body.name
     if (!name) return res.status(400).json({ msg: 'Informe um nome para a categoria' });
 
-    const categorie = await Categorie.findOne({ name });
+    const categorie = await Category.findOne({ name });
     if (categorie) return res.status(409).json({ msg: 'Categoria já cadastrada' });
 
     try {

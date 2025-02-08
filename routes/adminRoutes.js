@@ -9,12 +9,13 @@ import Post from '../models/Post.js'
 import addCategory from '../controllers/categoryController.js'
 
 router.get('/', async (req, res) => {
+    const userName = req.userName
     try {
         const users = await User.find().lean();
         const categories = await Category.find().lean();
         const posts = await Post.find().populate('owner').lean();
 
-        res.render('admin/index', { users, categories, posts });
+        res.render('admin/index', { users, categories, posts, userName });
     } catch (err) {
         res.status(401).json({ msg: 'Erro ao renderizar os usuários' });
     }

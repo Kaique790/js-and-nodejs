@@ -23,9 +23,9 @@ const isAdmin = async (req, res, next) => {
     try {
         const user = await User.findOne({ name });
         if(user.role === 'admin') return next();
-        res.render('errors/notFound');
+        res.status(404).render('errors/notFound', { status: 404 });
     } catch(err) {
-        res.status(401).json({ msg: 'Usuário não encontrado: ', err });
+        res.status(500).render('errors/notFound', { err, status: 500 });
     }
 }
 

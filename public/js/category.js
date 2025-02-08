@@ -30,6 +30,6 @@ async function editCategory(event, categoryId) {
         
         nameCategory.innerHTML = response.data.newName
     } catch(err) {
-        alert(err);
+        console.log(err);
     }
 }
