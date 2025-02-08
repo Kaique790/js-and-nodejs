@@ -12,12 +12,14 @@ function antes2 (cb) {
     return cb()
 }
 function copiar (cb) {
-    console.log('Task de copiar...')
-
+    //gulp.src(['pastaA/arquivo1.txt','pastaA/arquivo2.txt'])
+    gulp.src(['pastaA/**/*.txt'])
+    .pipe(gulp.dest('pastaC'))
     return cb()
 }
 function fim (cb) {
     console.log('fim...')
+        
 
     return cb()
 }
