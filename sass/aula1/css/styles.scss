@@ -1,0 +1,11 @@
+.main {
+    div {
+        p {
+            color: red;
+            font-size: 32px;
+            &:hover {
+                color: blue;
+            }
+        }
+    }
+}

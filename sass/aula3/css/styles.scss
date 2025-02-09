@@ -1,0 +1,20 @@
+$green: green;
+$red: red;
+
+.button {
+    font-size: 16px;
+    border-radius: 25px;
+    color: white;
+    padding: 10px 20px;
+    &-green {
+        @extend .button;
+        background-color: $green;
+        border-color: $green;
+    }
+
+    &-red {
+        @extend .button;
+        background-color: $red;
+        border-color: $red;
+    }
+}
