@@ -1,0 +1,31 @@
+// bg-colors
+
+$bg-red: red;
+$bg-yellow: yellow;
+$bg-tomato: tomato;
+
+@function colorsDiv($param) {
+    $color: ();
+
+    @if $param == tomato {
+        $color: tomato;
+    }
+    @else {
+        $color: black;
+    }
+
+    $bg-tomato: tomato;
+
+
+
+    // @debug $bg-tomato;
+    // @warn "Verifique se a cor do debug anterior é tomato...";
+    // @error "ERRORRRRRRRRRRRRRRRRRRRRRR... :)";
+
+    @return $color;
+}
+
+@mixin createDiv {
+    width: 350px;
+    height: 150px;
+}

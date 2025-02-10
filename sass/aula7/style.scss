@@ -1,0 +1,6 @@
+@use "sass/bg-colors";
+
+.div1 {
+    @include bg-colors.createDiv;
+    background-color: bg-colors.colorsDiv(pink);
+}
