@@ -13,12 +13,12 @@ const __dirname = dirname(__filename);
 export default {
     entry: './src/index.js',
     output: {
-        filename: 'bundle.js',
-        path: path.resolve(__dirname, './dist')
+        filename: 'build.js',
+        path: path.resolve(__dirname, './build')
     },
     mode: 'development',
     devServer: {
-        static: path.resolve(__dirname, './dist'),
+        static: path.resolve(__dirname, './build'),
         hot: true,
         port: '9000'
     },

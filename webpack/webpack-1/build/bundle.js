@@ -10,23 +10,43 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./src/pessoa.js":
-/*!***********************!*\
-  !*** ./src/pessoa.js ***!
-  \***********************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ "./src/components/heading.css":
+/*!************************************!*\
+  !*** ./src/components/heading.css ***!
+  \************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ Pessoa)\n/* harmony export */ });\nclass Pessoa {\r\n    cumprimentar() {\r\n        return 'Bom dia!'\r\n    }\r\n}\n\n//# sourceURL=webpack://webpack-2/./src/pessoa.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n\n\n//# sourceURL=webpack://webpack/./src/components/heading.css?");
 
 /***/ }),
 
-/***/ "./src/principal.js":
-/*!**************************!*\
-  !*** ./src/principal.js ***!
-  \**************************/
+/***/ "./src/calc.js":
+/*!*********************!*\
+  !*** ./src/calc.js ***!
+  \*********************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _pessoa_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./pessoa.js */ \"./src/pessoa.js\");\n\r\n\r\nconst atendente = new _pessoa_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"]\r\nconsole.log(atendente.cumprimentar);\n\n//# sourceURL=webpack://webpack-2/./src/principal.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst soma = function (a, b) {\r\n  console.log(a + b);\r\n};\r\n\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (soma);\n\n//# sourceURL=webpack://webpack/./src/calc.js?");
+
+/***/ }),
+
+/***/ "./src/components/heading.js":
+/*!***********************************!*\
+  !*** ./src/components/heading.js ***!
+  \***********************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _heading_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./heading.css */ \"./src/components/heading.css\");\n\r\n\r\nclass Heading {\r\n  create(text) {\r\n    const heading = document.createElement(\"h2\");\r\n\r\n    heading.innerHTML = text;\r\n\r\n    heading.classList.add('main-title')\r\n\r\n    document.querySelector('body').appendChild(heading)\r\n  }\r\n}\r\n\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Heading);\n\n//# sourceURL=webpack://webpack/./src/components/heading.js?");
+
+/***/ }),
+
+/***/ "./src/index.js":
+/*!**********************!*\
+  !*** ./src/index.js ***!
+  \**********************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _calc_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./calc.js */ \"./src/calc.js\");\n/* harmony import */ var _components_heading_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/heading.js */ \"./src/components/heading.js\");\n\r\n\r\n\r\nconsole.log(\"Testando webpack 2\");\r\n\r\n(0,_calc_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(2,4)\r\n;(0,_calc_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(10,20)\r\n\r\n// loaders\r\n\r\nconst heading = new _components_heading_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"]();\r\n\r\nheading.create(\"Título dinâmico\")\r\nheading.create(\"Hot reload\")\n\n//# sourceURL=webpack://webpack/./src/index.js?");
 
 /***/ })
 
@@ -90,7 +110,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _pes
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module can't be inlined because the eval devtool is used.
-/******/ 	var __webpack_exports__ = __webpack_require__("./src/principal.js");
+/******/ 	var __webpack_exports__ = __webpack_require__("./src/index.js");
 /******/ 	
 /******/ })()
 ;

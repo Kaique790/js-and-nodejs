@@ -46,7 +46,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \**********************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _calc_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./calc.js */ \"./src/calc.js\");\n/* harmony import */ var _components_heading_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/heading.js */ \"./src/components/heading.js\");\n\r\n\r\n\r\nconsole.log(\"Testando webpack 2\");\r\n\r\n(0,_calc_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(2,4)\r\n;(0,_calc_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(10,20)\r\n\r\n// loaders\r\n\r\nconst heading = new _components_heading_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"]();\r\n\r\nheading.create(\"Título dinâmico\")\n\n//# sourceURL=webpack://webpack/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _calc_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./calc.js */ \"./src/calc.js\");\n/* harmony import */ var _components_heading_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/heading.js */ \"./src/components/heading.js\");\n\r\n\r\n\r\nconsole.log(\"Testando webpack 2\");\r\n\r\n(0,_calc_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(2,4)\r\n;(0,_calc_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(10,20)\r\n\r\n// loaders\r\n\r\nconst heading = new _components_heading_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"]();\r\n\r\nheading.create(\"Título dinâmico\")\r\nheading.create(\"Hot reload\")\n\n//# sourceURL=webpack://webpack/./src/index.js?");
 
 /***/ })
 
