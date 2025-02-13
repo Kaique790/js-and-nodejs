@@ -26,7 +26,8 @@ export default {
     plugins: [
         new MiniCssExtractPlugin({
             filename: "style.css"
-        })
+        }),
+        new Html
     ],
     optimization: {
         minimizer: [
