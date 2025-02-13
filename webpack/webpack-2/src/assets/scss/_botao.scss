@@ -1,3 +1,5 @@
+@use 'variables' as *;
+
 .botao {
   background-color: $cor-bg-botao-padrao;
   color: $cor-botao-padrao;
