@@ -4,7 +4,7 @@ insert into cidades (nome, area, estado_id)
 values ('Campinas', 795, 29)
 
 insert into cidades (nome, area, estado_id)
-values ('Niterói' 133.9, 23)
+values ('Niterói', 133.9, 23)
 
 insert into cidades (nome, area, estado_id)
 values(
@@ -18,6 +18,11 @@ insert into cidades (nome, area, estado_id)
 
 insert into cidades (nome, area, estado_id)
     values('São Cristovão', 432.4, (select id from estados where sigla = 'SE'))
+
+
+insert into cidades
+    (nome, area, estado_id)
+    values('Juazeiro do Norte', 248.2, (select id from estados where sigla = 'CE'))
 
 select * from cidades
 
