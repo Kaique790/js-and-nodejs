@@ -1,0 +1,63 @@
+<h1>CRUD</h1>
+<section class="form-container">
+    <form id="form" action="/add" method="post">
+        <h2>Faça um post</h2>
+        <section class="input-container">
+            <div class="user-container">
+                <label for="user">Seu nome: <span>|</span><img src="/images/icon-user.png" alt="icon-user" class="icon-user"></label>
+                <input type="text" name="user" id="user" placeholder="seu nome">
+            </div>
+            <div class="subject-container">
+                <label for="subject">Assunto: <span>|</span><img src="/images/icon-book.png" alt="icon-book" class="icon-book"></label>
+                <input type="text" name="subject" id="subject" placeholder="ex: animes">
+            </div>
+            <div class="addpost-container">
+                <label for="addpost" id="label-content">Postagem:</label>
+                <textarea name="content" id="addpost"></textarea>
+            </div>
+            <div class="btn-submit-container">
+                <button type="submit" class="btn-form">Enviar postagem</button>
+            </div>
+        </section>
+    </form>
+</section>
+
+<section class="posts-container">
+    <h2>Postagens feitas:</h2>
+    <div class="post">
+        <h3>Kaique</h3>
+        <h4>CRUD</h4>
+        <p><span>Create, Read, Update, delete: criar, ver, editar e deletar postagens. Feito com Handlebars, CSS, NodeJS, Express e MySQL.</span></p>
+        <section class="post-buttons">
+            <a href="#">
+                <button><i class="bi bi-trash-fill"></i>
+                </button>
+            </a>
+            <a href="#">
+                <button><i class="bi bi-pen-fill"></i>
+                </button>
+            </a>
+        </section>
+    </div>
+    
+    {{#each posts}}
+    <div class="post">
+        <h3>{{user}}</h3>
+        <h4>{{subject}}</h4>
+        <p><span>{{content}}</span></p>
+        
+        <section class="post-buttons">
+            <a href="/delete/{{id}}">
+                <button>
+                    <i class="bi bi-trash-fill"></i>
+                </button>
+            </a>
+            <a href="/edit/{{id}}" id="button-edit">
+                <button>
+                    <i class="bi bi-pen-fill"></i>
+                </button>
+            </a>
+        </section>
+    </div>
+    {{/each}}
+</section>
