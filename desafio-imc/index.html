@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Calcular IMC</title>
+</head>
+<body>
+    <section class="container">
+        <div class="tittle">
+            <h1>Calcule seu IMC</h1>
+        </div>
+        <form class="form" id="form" novalidate>
+            <label for="name">Digite seu nome:</label>
+            <div class="email-container">
+                <input type="text" name="name" id="name" maxlength="12" placeholder="ex: Kaique">
+                <a id="mensagem-erro">Mensagem de erro</a>
+            </div>
+            <label for="height">Digite sua altura(em cm):</label>
+            <div class="height-container">
+                <input type="number" name="height" id="height" placeholder="ex: 187cm">
+                <a id="mensagem-erro">Mensagem de erro</a>
+            </div>
+            <label for="weight">Digite seu peso:</label>
+            <div class="weight-container">
+                <input type="number" name="weight" id="weight" placeholder="ex: 72kg">
+                <a>Mensagem de erro</a>
+            </div>
+                <div class="button">
+                    <button class="submit" type="submit">Calcular
+                    </button>
+                </div>
+        </form>
+        <section class="resultado">
+            <p class="resultado-message">Calcule já seu IMC</p>
+        </section>
+    </section>
+    <script src="scripts.js"></script>
+</body>
+</html>
