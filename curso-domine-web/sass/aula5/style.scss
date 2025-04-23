@@ -1,0 +1,8 @@
+@use 'sass/colors';
+
+.retangulo {
+    width: 400px;
+    height: 200px;
+    margin-bottom: 10px;
+    background-color: colors.bg-colors(primary);
+}

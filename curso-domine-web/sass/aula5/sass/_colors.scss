@@ -1,0 +1,16 @@
+@use "sass:map";
+
+$colors: (
+    "primary": tomato,
+    "secondary": pink
+);
+
+@function bg-colors($key) {
+
+    @if not map.has-key($colors, $key) {
+        @warn "O valor: #{key} não está disponivel!";
+    }
+
+    @return map.get($colors, $key);
+
+}

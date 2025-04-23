@@ -1,0 +1,7 @@
+.main div p {
+  color: red;
+  font-size: 32px;
+}
+.main div p:hover {
+  color: blue;
+}/*# sourceMappingURL=styles.css.map */
